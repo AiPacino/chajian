@@ -1,3 +1,4 @@
+console.log(1);
 chrome.storage.local.set({
     hslSet: {
         hslTop: 'show',
@@ -10,7 +11,6 @@ chrome.storage.local.set({
 function removeCookie(u, c) {
     chrome.cookies.remove({url: u, name: c.name});
 }
-
 chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.name == "clearCook") {
         chrome.cookies.get({
@@ -50,7 +50,6 @@ chrome.extension.onMessage.addListener(function (request, sender, sendResponse) 
     return true;
 });
 chrome.runtime.setUninstallURL("http://www.hslyh.com/");
-
 function addConfig(vUrl, dUrl, n, local) {
     var time = new Date().getTime();
     var dname = n + "data";
@@ -76,7 +75,6 @@ function addConfig(vUrl, dUrl, n, local) {
         }
     });
 }
-
 chrome.storage.local.get(null, function (e) {
     addConfig("addv.json", "addvdata.js", "hsladdv", e);
     addConfig("switchv.json", "switchvdata.json", "hslswitchv", e);
