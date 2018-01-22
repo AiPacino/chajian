@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-console.log(1);
-console.log(1);
-=======
->>>>>>> parent of 47bbdff... 测试
 chrome.storage.local.set({
     hslSet: {
         hslTop: 'show',
