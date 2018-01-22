@@ -45,7 +45,7 @@
             var mainUrl, setting, settingNew, hslSwitch;
             var infoGroup = {
                 Id: getUrlParam("id"), platform: nowPlatform, title: "", price: "", similarGuessData: [], similarAll: {}, pid: "",
-                seller: "", cat: "", shop: "", pic: "", Sale: ""
+                seller: "", cat: "", shop: "", pic: "", sale: ""
             };  //淘宝产品的属性集合
             chrome.storage.local.get(null, function (e) {
                 var id = e.hsljsonvdata.myMmId;
@@ -60,7 +60,6 @@
                 var count = 0;  //
                 function countEnd() {
                     count += 1;
-                    console.log(count);
                     if (count == 3) {
                         start();
                     }
