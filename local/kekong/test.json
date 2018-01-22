@@ -1,0 +1,32 @@
+{
+  "midFixed": {
+    "name": "mid栏固定活动",
+    "model": "midFixed",
+    "value": 1
+  },
+  "midTime": {
+    "name": "mid栏限时活动",
+    "model": "midTime",
+    "value": 1
+  },
+  "topFont": {
+    "name": "顶部栏文字链",
+    "model": "topFont",
+    "value": 1
+  },
+  "popAct": {
+    "name": "pop栏活动",
+    "model": "popAct",
+    "value": 1
+  },
+  "clientAd": {
+    "name": "DBO广告位",
+    "model": "clientAd",
+    "value": 1
+  },
+  "clientTip": {
+    "name": "客户端弹窗tips",
+    "model": "clientTip",
+    "value": 1
+  }
+}

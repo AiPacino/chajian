@@ -1,0 +1,32 @@
+﻿{
+  "midFixed": {
+    "name": "mid\u680f\u56fa\u5b9a\u6d3b\u52a8",
+    "model": "midFixed",
+    "value": 1
+  },
+  "midTime": {
+    "name": "mid\u680f\u9650\u65f6\u6d3b\u52a8",
+    "model": "midTime",
+    "value": 1
+  },
+  "topFont": {
+    "name": "\u9876\u90e8\u680f\u6587\u5b57\u94fe",
+    "model": "topFont",
+    "value": 1
+  },
+  "popAct": {
+    "name": "pop\u680f\u6d3b\u52a8",
+    "model": "popAct",
+    "value": 1
+  },
+  "clientAd": {
+    "name": "DBO\u5e7f\u544a\u4f4d",
+    "model": "clientAd",
+    "value": 0
+  },
+  "clientTip": {
+    "name": "\u5ba2\u6237\u7aef\u5f39\u7a97tips",
+    "model": "clientTip",
+    "value": 0
+  }
+}
