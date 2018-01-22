@@ -1,4 +1,5 @@
 console.log(1);
+console.log(1);
 chrome.storage.local.set({
     hslSet: {
         hslTop: 'show',
