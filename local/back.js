@@ -7,6 +7,7 @@ chrome.storage.local.set({
 chrome.storage.local.set({
     hslListSet: 'show'
 });
+
 function removeCookie(u, c) {
     chrome.cookies.remove({url: u, name: c.name});
 }
