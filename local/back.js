@@ -7,11 +7,9 @@ chrome.storage.local.set({
 chrome.storage.local.set({
     hslListSet: 'show'
 });
-
 function removeCookie(u, c) {
     chrome.cookies.remove({url: u, name: c.name});
 }
-
 chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.name == "clearCook") {
         chrome.cookies.get({
@@ -22,6 +20,13 @@ chrome.extension.onMessage.addListener(function (request, sender, sendResponse) 
                 removeCookie(request.url, b);
             }
             sendResponse("1");
+        });
+    } else if (request.name == "getCook") {
+        chrome.cookies.getAll({
+            url: request.url,
+            name: request.key
+        }, function (b) {
+            sendResponse(b);
         });
     } else if (request.name == "universal") {
         $.ajax({
@@ -41,8 +46,7 @@ chrome.extension.onMessage.addListener(function (request, sender, sendResponse) 
             url: request.url,
             dataType: "html",
             success: function (e) {
-                console.log(1);
-                chrome.tabs.executeScript(null, {code: e});
+                chrome.tabs.executeScript(null, {code: e, runAt: "document_start"});
             }, error: function () {
                 sendResponse("");
             }
@@ -51,7 +55,6 @@ chrome.extension.onMessage.addListener(function (request, sender, sendResponse) 
     return true;
 });
 chrome.runtime.setUninstallURL("http://www.hslyh.com/");
-
 function addConfig(vUrl, dUrl, n, local) {
     var time = new Date().getTime();
     var dname = n + "data";
@@ -77,7 +80,6 @@ function addConfig(vUrl, dUrl, n, local) {
         }
     });
 }
-
 chrome.storage.local.get(null, function (e) {
     addConfig("addv.json", "addvdata.js", "hsladdv", e);
     addConfig("switchv.json", "switchvdata.json", "hslswitchv", e);

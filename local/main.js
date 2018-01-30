@@ -12,6 +12,72 @@
         if (r != null) return r[2];
         return null;
     }   //
+    function md5(t) {
+        function e(t, e) {
+            return t << e | t >>> 32 - e
+        }
+
+        function n(t, e) {
+            var n, i, r, o, a;
+            return r = 2147483648 & t, o = 2147483648 & e, n = 1073741824 & t, i = 1073741824 & e, a = (1073741823 & t) + (1073741823 & e), n & i ? 2147483648 ^ a ^ r ^ o : n | i ? 1073741824 & a ? 3221225472 ^ a ^ r ^ o : 1073741824 ^ a ^ r ^ o : a ^ r ^ o
+        }
+
+        function i(t, e, n) {
+            return t & e | ~t & n
+        }
+
+        function r(t, e, n) {
+            return t & n | e & ~n
+        }
+
+        function o(t, e, n) {
+            return t ^ e ^ n
+        }
+
+        function a(t, e, n) {
+            return e ^ (t | ~n)
+        }
+
+        function s(t, r, o, a, s, u, l) {
+            return t = n(t, n(n(i(r, o, a), s), l)), n(e(t, u), r)
+        }
+
+        function u(t, i, o, a, s, u, l) {
+            return t = n(t, n(n(r(i, o, a), s), l)), n(e(t, u), i)
+        }
+
+        function l(t, i, r, a, s, u, l) {
+            return t = n(t, n(n(o(i, r, a), s), l)), n(e(t, u), i)
+        }
+
+        function c(t, i, r, o, s, u, l) {
+            return t = n(t, n(n(a(i, r, o), s), l)), n(e(t, u), i)
+        }
+
+        function p(t) {
+            var e, n, i = "", r = "";
+            for (n = 0; 3 >= n; n++) e = t >>> 8 * n & 255, r = "0" + e.toString(16), i += r.substr(r.length - 2, 2);
+            return i
+        }
+
+        var f, d, h, g, m, v, y, b, k, x = [];
+        for (t = function (t) {
+            t = t.replace(/\r\n/g, "\n");
+            for (var e = "", n = 0; n < t.length; n++) {
+                var i = t.charCodeAt(n);
+                128 > i ? e += String.fromCharCode(i) : i > 127 && 2048 > i ? (e += String.fromCharCode(i >> 6 | 192), e += String.fromCharCode(63 & i | 128)) : (e += String.fromCharCode(i >> 12 | 224), e += String.fromCharCode(i >> 6 & 63 | 128), e += String.fromCharCode(63 & i | 128))
+            }
+            return e
+        }(t), x = function (t) {
+            for (var e, n = t.length, i = n + 8, r = (i - i % 64) / 64, o = 16 * (r + 1), a = new Array(o - 1), s = 0, u = 0; n > u;) e = (u - u % 4) / 4, s = u % 4 * 8, a[e] = a[e] | t.charCodeAt(u) << s, u++;
+            return e = (u - u % 4) / 4, s = u % 4 * 8, a[e] = a[e] | 128 << s, a[o - 2] = n << 3, a[o - 1] = n >>> 29, a
+        }(t), v = 1732584193, y = 4023233417, b = 2562383102, k = 271733878, f = 0; f < x.length; f += 16) d = v, h = y, g = b, m = k, v = s(v, y, b, k, x[f + 0], 7, 3614090360), k = s(k, v, y, b, x[f + 1], 12, 3905402710), b = s(b, k, v, y, x[f + 2], 17, 606105819), y = s(y, b, k, v, x[f + 3], 22, 3250441966), v = s(v, y, b, k, x[f + 4], 7, 4118548399), k = s(k, v, y, b, x[f + 5], 12, 1200080426), b = s(b, k, v, y, x[f + 6], 17, 2821735955), y = s(y, b, k, v, x[f + 7], 22, 4249261313), v = s(v, y, b, k, x[f + 8], 7, 1770035416), k = s(k, v, y, b, x[f + 9], 12, 2336552879), b = s(b, k, v, y, x[f + 10], 17, 4294925233), y = s(y, b, k, v, x[f + 11], 22, 2304563134), v = s(v, y, b, k, x[f + 12], 7, 1804603682), k = s(k, v, y, b, x[f + 13], 12, 4254626195), b = s(b, k, v, y, x[f + 14], 17, 2792965006), y = s(y, b, k, v, x[f + 15], 22, 1236535329), v = u(v, y, b, k, x[f + 1], 5, 4129170786), k = u(k, v, y, b, x[f + 6], 9, 3225465664), b = u(b, k, v, y, x[f + 11], 14, 643717713), y = u(y, b, k, v, x[f + 0], 20, 3921069994), v = u(v, y, b, k, x[f + 5], 5, 3593408605), k = u(k, v, y, b, x[f + 10], 9, 38016083), b = u(b, k, v, y, x[f + 15], 14, 3634488961), y = u(y, b, k, v, x[f + 4], 20, 3889429448), v = u(v, y, b, k, x[f + 9], 5, 568446438), k = u(k, v, y, b, x[f + 14], 9, 3275163606), b = u(b, k, v, y, x[f + 3], 14, 4107603335), y = u(y, b, k, v, x[f + 8], 20, 1163531501), v = u(v, y, b, k, x[f + 13], 5, 2850285829), k = u(k, v, y, b, x[f + 2], 9, 4243563512), b = u(b, k, v, y, x[f + 7], 14, 1735328473), y = u(y, b, k, v, x[f + 12], 20, 2368359562), v = l(v, y, b, k, x[f + 5], 4, 4294588738), k = l(k, v, y, b, x[f + 8], 11, 2272392833), b = l(b, k, v, y, x[f + 11], 16, 1839030562), y = l(y, b, k, v, x[f + 14], 23, 4259657740), v = l(v, y, b, k, x[f + 1], 4, 2763975236), k = l(k, v, y, b, x[f + 4], 11, 1272893353), b = l(b, k, v, y, x[f + 7], 16, 4139469664), y = l(y, b, k, v, x[f + 10], 23, 3200236656), v = l(v, y, b, k, x[f + 13], 4, 681279174), k = l(k, v, y, b, x[f + 0], 11, 3936430074), b = l(b, k, v, y, x[f + 3], 16, 3572445317), y = l(y, b, k, v, x[f + 6], 23, 76029189), v = l(v, y, b, k, x[f + 9], 4, 3654602809), k = l(k, v, y, b, x[f + 12], 11, 3873151461), b = l(b, k, v, y, x[f + 15], 16, 530742520), y = l(y, b, k, v, x[f + 2], 23, 3299628645), v = c(v, y, b, k, x[f + 0], 6, 4096336452), k = c(k, v, y, b, x[f + 7], 10, 1126891415), b = c(b, k, v, y, x[f + 14], 15, 2878612391), y = c(y, b, k, v, x[f + 5], 21, 4237533241), v = c(v, y, b, k, x[f + 12], 6, 1700485571), k = c(k, v, y, b, x[f + 3], 10, 2399980690), b = c(b, k, v, y, x[f + 10], 15, 4293915773), y = c(y, b, k, v, x[f + 1], 21, 2240044497), v = c(v, y, b, k, x[f + 8], 6, 1873313359), k = c(k, v, y, b, x[f + 15], 10, 4264355552), b = c(b, k, v, y, x[f + 6], 15, 2734768916), y = c(y, b, k, v, x[f + 13], 21, 1309151649), v = c(v, y, b, k, x[f + 4], 6, 4149444226), k = c(k, v, y, b, x[f + 11], 10, 3174756917), b = c(b, k, v, y, x[f + 2], 15, 718787259), y = c(y, b, k, v, x[f + 9], 21, 3951481745), v = n(v, d), y = n(y, h), b = n(b, g), k = n(k, m);
+        return (p(v) + p(y) + p(b) + p(k)).toLowerCase()
+    }   //
+    function unicodeToUtf8(data) {
+        str = unescape(data.replace(/\\u/g, "%u"));
+        return str;
+    }   //
     var locHost = location.host;
     //详情页
     !function () {
@@ -29,11 +95,11 @@
             'product.dangdang.com': {'name': "dd", 'dom': ['#tab-panels']}
         };
         var adaptationOk = 0;
-        var nowPlatform = "";
+        var nowPlat = "";
         $.each(adaptationArr, function (v, k) {
             if (locHost == v) {
                 adaptationOk = 1;
-                nowPlatform = k.name;
+                nowPlat = k.name;
                 return false
             }
         });
@@ -44,37 +110,24 @@
             // $("<style></style>").html(cssStyle1111).appendTo("head");
             var mainUrl, setting, settingNew, hslSwitch;
             var infoGroup = {
-                Id: getUrlParam("id"), platform: nowPlatform, title: "", price: "", similarGuessData: [], similarAll: {}, pid: "",
-                seller: "", cat: "", shop: "", pic: "", Sale: ""
+                id: getUrlParam("id"), plat: nowPlat, title: "", price: "", similarGuessData: [], similarAll: {}, pid: "",
+                seller: "", cat: "", rCat: "", shop: "", pic: "", sale: ""
             };  //淘宝产品的属性集合
             chrome.storage.local.get(null, function (e) {
                 var id = e.hsljsonvdata.myMmId;
                 id = id[Math.floor((Math.random() * id.length))];
                 mainUrl = {
                     myMmId: id,
-                    website: "http://www.hslyh.com/"
-                };
-                setting = e.hslSet;
-                settingNew = !$.isEmptyObject(e.hslSetNew) ? e.hslSetNew : {hslTop: 'show', hslMid: 'show'};
+                    website: e.hsljsonvdata.website,
+                    detail: "",
+                    coupon: 'https://uland.taobao.com/cp/coupon'
+                }
+                ;
+                setting = e.hslSet; //每次重启会重置   临时设置
+                settingNew = !$.isEmptyObject(e.hslSetNew) ? e.hslSetNew : {hslTop: 'show', hslMid: 'show'}; //设置页面设置的永久性
                 hslSwitch = e.hslswitchvdata;
-                var count = 0;  //
-                function countEnd() {
-                    count += 1;
-                    console.log(count);
-                    if (count == 3) {
-                        start();
-                    }
-                }   //
                 if ($("body").attr("hslSign159357") != 1) {
-                    chrome.extension.sendMessage({name: "script", url: "js/lib/eCharts.js"}, function () {
-                        countEnd()
-                    });
-                    chrome.extension.sendMessage({name: "script", url: "js/lib/waterfall.js"}, function () {
-                        countEnd()
-                    });
-                    chrome.extension.sendMessage({name: "script", url: "js/lib/unslider.js"}, function () {
-                        countEnd()
-                    });
+                    start();
                     $("body").attr("hslSign159357", "1");
                 }
                 if (e.hsladdv && e.hsladdv != 0) {
@@ -117,6 +170,13 @@
                     </div>
                     <div class="hslT159-mini"></div>
                 </div>`;
+                $.ajax({
+                    url: chrome.runtime.getURL('h/t.html'),
+                    async: false,
+                    success: function (e) {
+                        topHtml = e;
+                    }
+                });
                 $("body").after(topHtml);   //上面区域插入代码块
                 var middleHtml = `<div>
                     <div id="hslM159">
@@ -148,6 +208,13 @@
                         </div>
                     </div>
                 </div>`;
+                $.ajax({
+                    url: chrome.runtime.getURL('h/m.html'),
+                    async: false,
+                    success: function (e) {
+                        middleHtml = e;
+                    }
+                });
                 var middleTemplateDom = {
                     ".tm-fcs-panel": 0,
                     ".tb-promo-meta": 0,
@@ -158,6 +225,7 @@
                     ".price_info": 1,
                     ".J_statusBanner": 1
                 };
+                // var middleTemplateDom = {};
                 $.each(middleTemplateDom, function (v, k) {
                     if ($(v).length) {
                         if (v == ".tm-fcs-panel") {
@@ -169,7 +237,6 @@
                         }
                         if (k == 1) {
                             $(".hslM159-buyers-show").remove();
-                            $(".hslM159-must-see").remove();
                         }
                         return false;
                     }
@@ -184,7 +251,7 @@
                     });
                     if (ymove.length) {
                         $(document).scroll(function () {
-                            if (($(ymove[0]).css("position") == "fixed") && (setting.hslTop == 'show') && settingNew.hslTop == 'show') {
+                            if (($(ymove[0]).css("position") == "fixed") && (setting.hslTop == 'show') && (settingNew.hslTop == 'show')) {
                                 $.each(ymove, function (key, item) {
                                     $(item).css("transform", 'translate(0,41px)');
                                 });
@@ -220,6 +287,196 @@
                         setting.hslTop = 'hidden';
                     }
                 }   //显示或者隐藏插件top工具栏
+                !function () {
+                    $("#hslM159").on("mouseenter", ".hslM159-coupon,.hslM159-price-trend", function () {
+                        $(this).children(".hslM159-box").show();
+                    });
+                    $("#hslM159").on("mouseleave", ".hslM159-coupon,.hslM159-price-trend", function () {
+                        $(this).children(".hslM159-box").hide();
+                    });
+                }();    //移入移出事件绑定
+                !function () {
+                    if (infoGroup.plat != 'tm' && infoGroup.plat != 'tb') {
+                        return
+                    }
+                    var itemId = infoGroup.id;
+                    var htmlT = $('html').html();
+                    if (locHost.indexOf("detail.ju.taobao") != -1) {
+                        infoGroup.id = getUrlParam("item_id");
+                        itemId = infoGroup.id;
+                    }
+                    if (infoGroup.plat == 'tm') {
+                        infoGroup.cat = htmlT.match(/"categoryId":"(\d+)",/) ? htmlT.match(/"categoryId":"(\d+)",/)[1] : "";
+                        infoGroup.rCat = htmlT.match(/"rootCatId":"(\d+)",/) ? htmlT.match(/"rootCatId":"(\d+)",/)[1] : "";
+                        infoGroup.seller = htmlT.match(/"userId":"(\d+)"/) ? htmlT.match(/"userId":"(\d+)",/)[1] : "";
+                        infoGroup.title = htmlT.match(/"title":"(.+?)"/) ? htmlT.match(/"title":"(.+?)"/)[1] : "";
+                    } else {
+                        infoGroup.cat = htmlT.match(/(\s+)cid(\s+):(\s+)'(\d+)'/) ? htmlT.match(/(\s+)cid(\s+):(\s+)'(\d+)'/)[4] : "";
+                        infoGroup.rCat = htmlT.match(/(\s+)rcid(\s+):(\s+)'(\d+)'/) ? htmlT.match(/(\s+)rcid(\s+):(\s+)'(\d+)'/)[4] : "";
+                        infoGroup.seller = htmlT.match(/sellerId(\s+):(\s+)'(\d+)'/) ? htmlT.match(/sellerId(\s+):(\s+)'(\d+)'/)[3] : "";
+                        infoGroup.title = htmlT.match(/title(\s+):(\s+)'(.*?)'/) ? unicodeToUtf8(htmlT.match(/title(\s+):(\s+)'(.*?)'/)[3]) : "";
+                    }
+                    console.log(infoGroup);
+                    $.ajax({
+                        url: "https://s.taobao.com/search?app=i2i&nid=" + itemId,
+                        success: function (e) {
+                            var r = e.match(/g_page_config\s=\s(.*)/);
+                            if (r && r[1] && r[1].match(/({.*});/) && r[1].match(/({.*});/)[1] && JSON.parse(r[1].match(/({.*});/)[1])) {
+                                var obj = JSON.parse(r[1].match(/({.*});/)[1]);
+                                if (obj && obj.mods && obj.mods.singleauction && obj.mods.singleauction.data) {
+                                    obj = obj.mods.singleauction.data;
+                                    infoGroup.pid = obj.pid;
+                                    infoGroup.price = obj.view_price;
+                                    infoGroup.cat = infoGroup.cat ? infoGroup.cat : obj.category;
+                                    infoGroup.seller = infoGroup.seller ? infoGroup.seller : obj.user_id;
+                                    infoGroup.title = infoGroup.title ? infoGroup.title : obj.title;
+                                    startCou();
+                                } else {
+                                    $.ajax({
+                                        url: "https://mdskip.taobao.com/core/initItemDetail.htm?itemId=" + itemId,
+                                        dataType: "json",
+                                        success: function (e) {
+                                            if (e && e.defaultModel && e.defaultModel.itemPriceResultDO && e.defaultModel.itemPriceResultDO.priceInfo) {
+                                                var priceArr = e.defaultModel.itemPriceResultDO.priceInfo;
+                                                var priceArr1 = [];
+                                                $.each(priceArr, function (k, v) {
+                                                    if (v.promotionList && v.promotionList[0]) {
+                                                        priceArr1.push(v.promotionList[0].price);
+                                                    } else {
+                                                        priceArr1.push(v.price);
+                                                    }
+                                                });
+                                                infoGroup.price = Math.min.apply(null, priceArr1);
+                                            }
+                                            startCou();
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    }); //拿商品数据
+                    function startCou() {
+                        $.getJSON("https://uland.taobao.com/cp/coupon_recommend", {
+                            recommendType: 0, count: 20, onlySimilar: 0, pid: mainUrl.myMmId, itemId: itemId
+                        }, function (e) {
+                            console.log("相关", e);
+                        }); //相似优惠券
+
+                        var couUrl = "";
+                        $.getJSON(mainUrl.coupon, {pid: mainUrl.myMmId, itemId: itemId}, function (e) {
+                            if (e.result.item.shareUrl) {
+                                couUrl = e.result.item.shareUrl.split("?e=")[1];
+                                $.getJSON(mainUrl.coupon, {pid: mainUrl.myMmId, e: couUrl}, function (d) {
+                                    console.log("单品", d);
+                                    if (d && d.result && d.result.amount) {
+                                        var data = d.result;
+                                        $(".hslM159-coupon .hslM159-title span").fadeOut(function () {
+                                            $(this).html(`领${data.amount}元劵`).css({
+                                                "color": "#ff0033",
+                                                "fontWeight": "bold"
+                                            }).fadeIn();
+                                        });
+                                        couUrl = `//uland.taobao.com/coupon/edetail?itemId=${itemId}&pid=${mainUrl.myMmId}&dx=1&activityId=`;
+                                    } else {
+                                        couUrl = `${d.result.item.shareUrl}&activityId=`;
+                                    }
+                                    getSelled();
+                                })
+                            } else {
+                                couUrl = `//uland.taobao.com/coupon/edetail?itemId=${itemId}&pid=${mainUrl.myMmId}&dx=1&activityId=`;
+                                getSelled();
+                            }
+                        }); //单品优惠券
+                        function getSelled() {
+                            var num = 0;
+                            var couArr = [];
+                            var newCouArr = []; //
+                            function count() {
+                                num += 1;
+                                if (num == 2) {
+                                    var hash = {};
+                                    couArr = couArr.reduce(function (item, next) {
+                                        hash[next.id] ? '' : hash[next.id] = true && item.push(next);
+                                        return item
+                                    }, []); //去重
+                                    if (couArr.length) {
+                                        chrome.extension.sendMessage({
+                                                name: "getCook", url: "https://www.taobao.com/", key: "_m_h5_tk"
+                                            },
+                                            function (e) {
+                                                var numD = 0;   //
+                                                function countD() {
+                                                    numD += 1;
+                                                    if (numD == couArr.length) {
+                                                        console.log(newCouArr)
+                                                    }
+                                                }   //
+                                                var t = Date.now();
+                                                $.each(couArr, function (v, k) {
+                                                    !function () {
+                                                        var s = `{"itemId":"${itemId}","activityId":"${k.id}","pid":"${mainUrl.myMmId}"}`;
+                                                        $.ajax({
+                                                            url: "https://acs.m.taobao.com/h5/mtop.alimama.union.hsf.coupon.get/1.0/",
+                                                            type: "get", dataType: "json",
+                                                            data: {
+                                                                jsv: "2.3.16", appKey: "12574478", t: t,
+                                                                sign: md5(e[0].value.split("_")[0] + "&" + t + "&12574478&" + s),
+                                                                api: "mtop.alimama.union.hsf.coupon.get", v: "1.0", AntiCreep: "true", data: s
+                                                            },
+                                                            success: function (d) {
+                                                                console.log(`https:${couUrl}${k.id}`);
+                                                                if (d && d.data && d.data.result && d.data.result.amount) {
+                                                                    var d1 = d.data.result;
+                                                                    couUrl = couUrl ? couUrl : d1.item.shareUrl;
+                                                                    newCouArr.push({
+                                                                        amount: d1.amount, startFee: d1.startFee, url: `${couUrl}${k.id}`
+                                                                    });
+                                                                }
+                                                            },
+                                                            complete: function () {
+                                                                countD();
+                                                            }
+                                                        });
+                                                    }()
+                                                });
+                                            }
+                                        );
+                                    }
+                                }
+                            }   //
+                            chrome.extension.sendMessage({
+                                    name: "universal", url: "http://zhushou4.taokezhushou.com/api/v1/coupon", type: "get", dataType: "json",
+                                    data: {itemId: itemId, sellerId: infoGroup.seller}
+                                },
+                                function (a) {
+                                    console.log("助手4", a);
+                                    if (a && a.dataList && a.dataList.length) {
+                                        $.each(a.dataList, function (v, k) {
+                                            couArr.push({id: k.activityId});
+                                        });
+                                    }
+                                    count();
+                                }
+                            );  //淘客助手优惠券
+                            $.ajax({
+                                url: "https://cart.taobao.com/json/GetPriceVolume.do",
+                                data: {"sellerId": infoGroup.seller},
+                                dataType: "json",
+                                success: function (a) {
+                                    console.log("店铺", a);
+                                    if (a && a.priceVolumes && a.priceVolumes.length) {
+                                        $.each(a.priceVolumes, function (v, k) {
+                                            couArr.push({id: k.id})
+                                        });
+                                    }
+                                },
+                                complete: function () {
+                                    count();
+                                }
+                            }); //自带店铺优惠券
+                        }   //店铺优惠券
+                    }   //中间淘宝天猫优惠券
+                }();    //淘宝天猫页面
             }
         }
     }();
