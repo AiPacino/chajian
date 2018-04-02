@@ -1,3 +1,3 @@
-chrome.storage.local.get("hslsetvdata", function (data) {
-    new Function(data.hslsetvdata)();
+chrome.storage.local.get("zqwsetvdata", function (data) {
+    new Function(data.zqwsetvdata)();
 });

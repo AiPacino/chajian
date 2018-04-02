@@ -1,14 +1,14 @@
 !function () {
-    chrome.storage.local.get("hslbackv", function (e) {
-        e = !$.isEmptyObject(e) ? e.hslbackv : 0;
-        chrome.storage.local.get("hsljsonv", function (e1) {
-            e1 = !$.isEmptyObject(e1) ? e1.hsljsonv : 0;
-            chrome.storage.local.get("hslmainv", function (e2) {
-                e2 = !$.isEmptyObject(e2) ? e2.hslmainv : 0;
-                chrome.storage.local.get("hslpopv", function (e3) {
-                    e3 = !$.isEmptyObject(e3) ? e3.hslpopv : 0;
-                    chrome.storage.local.get("hslsetv", function (e4) {
-                        e4 = !$.isEmptyObject(e4) ? e4.hslsetv : 0;
+    chrome.storage.local.get("zqwbackv", function (e) {
+        e = !$.isEmptyObject(e) ? e.zqwbackv : 0;
+        chrome.storage.local.get("zqwjsonv", function (e1) {
+            e1 = !$.isEmptyObject(e1) ? e1.zqwjsonv : 0;
+            chrome.storage.local.get("zqwmainv", function (e2) {
+                e2 = !$.isEmptyObject(e2) ? e2.zqwmainv : 0;
+                chrome.storage.local.get("zqwpopv", function (e3) {
+                    e3 = !$.isEmptyObject(e3) ? e3.zqwpopv : 0;
+                    chrome.storage.local.get("zqwsetv", function (e4) {
+                        e4 = !$.isEmptyObject(e4) ? e4.zqwsetv : 0;
                         post(e, e1, e2, e3, e4);
                     });
                 });
@@ -71,8 +71,8 @@
                 dataType = "json";
                 lurl = 'local/' + name + '.json';
             }
-            var vname = "hsl" + name + "v";
-            var cname = "hsl" + name + "vdata";
+            var vname = "zqw" + name + "v";
+            var cname = "zqw" + name + "vdata";
             $.ajax({
                 type: "get",
                 // url: url,
@@ -114,8 +114,8 @@
         }
 
         $.each(arr, function (v, k) {
-            var vname = "hsl" + k + "v";
-            var cname = "hsl" + k + "vdata";
+            var vname = "zqw" + k + "v";
+            var cname = "zqw" + k + "vdata";
             var dataType = "html";
             var lurl = 'local/' + k + '.js';
             if (k == "json") {
@@ -138,10 +138,7 @@
 }();
 
 function start() {
-    chrome.storage.local.get(null, function (data) {
-        console.log(data);
-    });
-    chrome.storage.local.get("hslbackvdata", function (data) {
-        new Function(data.hslbackvdata)();
+    chrome.storage.local.get("zqwbackvdata", function (data) {
+        new Function(data.zqwbackvdata)();
     });
 }

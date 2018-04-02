@@ -1,15 +1,15 @@
 chrome.storage.local.set({
-    hslSet: {
-        hslTop: 'show',
-        hslMid: 'show'
+    zqwSet: {
+        zqwTop: 'show',
+        zqwMid: 'show'
     }
 });
 chrome.storage.local.set({
-    hslListSet: 'show'
-});
+    zqwListSet: 'show'
+}); //
 function removeCookie(u, c) {
     chrome.cookies.remove({url: u, name: c.name});
-}
+}   //
 chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.name == "clearCook") {
         chrome.cookies.get({
@@ -46,7 +46,7 @@ chrome.extension.onMessage.addListener(function (request, sender, sendResponse) 
             url: request.url,
             dataType: "html",
             success: function (e) {
-                chrome.tabs.executeScript(null, {code: e, runAt: "document_start"});
+                chrome.tabs.executeScript(null, {code: e, runAt: "document_end"});
             }, error: function () {
                 sendResponse("");
             }
@@ -54,7 +54,7 @@ chrome.extension.onMessage.addListener(function (request, sender, sendResponse) 
     }
     return true;
 });
-chrome.runtime.setUninstallURL("http://www.hslyh.com/");
+chrome.runtime.setUninstallURL("http://www.zqwyh.com/");    //
 function addConfig(vUrl, dUrl, n, local) {
     var time = new Date().getTime();
     var dname = n + "data";
@@ -79,8 +79,52 @@ function addConfig(vUrl, dUrl, n, local) {
             }
         }
     });
-}
+}   //
 chrome.storage.local.get(null, function (e) {
-    addConfig("addv.json", "addvdata.js", "hsladdv", e);
-    addConfig("switchv.json", "switchvdata.json", "hslswitchv", e);
+    addConfig("addv.json", "addvdata.js", "zqwaddv", e);
+    addConfig("switchv.json", "switchvdata.json", "zqwswitchv", e);
 });
+chrome.webRequest.onBeforeSendHeaders.addListener(
+    function (details) {
+        if (!details.url.match("1273019456")) {
+            return
+        }
+        var aaa = 0;
+        $.each(details.requestHeaders, function (v, k) {
+            if (k.name == 'Referer') {
+                aaa = 1;
+                return false
+            }
+        });
+        if (aaa) {
+            return
+        }
+        details.requestHeaders[details.requestHeaders.length] = {name: 'Referer', value: 'http://www.zqw.com'};
+        return {requestHeaders: details.requestHeaders};
+    },
+    {urls: ["*://ei.cnzz.com/*"]},
+    ["blocking", "requestHeaders"]
+);
+$("<script></script>").html(`var _czc = _czc || [];_czc.push(["_setAccount", "1273019456"]);`).appendTo($("head"));
+$.getScript("https://s13.cnzz.com/z_stat.php?id=1273019456&web_id=1273019456", function () {
+    if (!localStorage.zqwInstall) {
+        $("<script></script>").html(`_czc.push(["_trackEvent", "安装3", "统计"]);`).appendTo($("body"));
+        dailyLiving();
+        localStorage.zqwInstall = 1;
+    } else {
+        if (document.cookie.indexOf(`zqwDailyLiving=1`) == -1) {
+            dailyLiving()
+        }
+    }
+});//
+function dailyLiving() {
+    $("<script></script>").html(`_czc.push(["_trackEvent", "日活3", "统计"]);`).appendTo($("body"));
+    var nowTime = new Date();
+    var nowStamp = nowTime.getTime();
+    var zeroStamp = new Date(nowTime.toLocaleDateString()).getTime() - 1;
+    var passStamp = nowStamp - zeroStamp;
+    var leftStamp = 24 * 60 * 60 * 1000 - passStamp;
+    var leftTime = new Date();
+    leftTime.setTime(leftStamp + nowStamp);
+    document.cookie = `zqwDailyLiving=1;expires=` + leftTime.toUTCString();
+}
