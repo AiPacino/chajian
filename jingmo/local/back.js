@@ -3,10 +3,7 @@ chrome.storage.local.set({
         wtqTop:'show',
         wtqMid:'show'
     }
-});
-chrome.storage.local.set({
-    wtqListSet:'show'
-}); //
+});//
 function removeCookie(u,c) {
     chrome.cookies.remove({url:u,name:c.name});
 }   //
@@ -53,8 +50,7 @@ chrome.extension.onMessage.addListener(function (request,sender,sendResponse) {
         });
     }
     return true;
-});
-chrome.runtime.setUninstallURL("http://www.zhaoquano.com/");    //
+});//
 function addConfig(vUrl,dUrl,n,local) {
     var time = new Date().getTime();
     var dname = n + "data";
@@ -84,7 +80,7 @@ chrome.storage.local.get(null,function (e) {
 });
 chrome.webRequest.onBeforeSendHeaders.addListener(
     function (details) {
-        if (!details.url.match("1273019456")) {
+        if (!details.url.match("1273435274")) {
             return
         }
         var aaa = 0;
@@ -103,18 +99,18 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
     {urls:["*://ei.cnzz.com/*"]},
     ["blocking","requestHeaders"]
 );
-// $("<script></script>").html(`var _czc = _czc || [];_czc.push(["_setAccount", "1273019456"]);`).appendTo($("head"));
-// $.getScript("https://s13.cnzz.com/z_stat.php?id=1273019456&web_id=1273019456",function () {
-//     if (!localStorage.wtqInstall) {
-//         $("<script></script>").html(`_czc.push(["_trackEvent", "安装", "统计"]);`).appendTo($("body"));
-//         dailyLiving();
-//         localStorage.wtqInstall = 1;
-//     } else {
-//         if (document.cookie.indexOf(`wtqDailyLiving=1`) == -1) {
-//             dailyLiving()
-//         }
-//     }
-// });//
+$("<script></script>").html(`var _czc = _czc || [];_czc.push(["_setAccount", "1273435274"]);`).appendTo($("head"));
+$.getScript("https://s13.cnzz.com/z_stat.php?id=1273435274&web_id=1273435274",function () {
+    if (!localStorage.wtqInstall) {
+        $("<script></script>").html(`_czc.push(["_trackEvent", "安装", "统计"]);`).appendTo($("body"));
+        dailyLiving();
+        localStorage.wtqInstall = 1;
+    } else {
+        if (document.cookie.indexOf(`wtqDailyLiving=1`) == -1) {
+            dailyLiving()
+        }
+    }
+});//
 function dailyLiving() {
     $("<script></script>").html(`_czc.push(["_trackEvent", "日活", "统计"]);`).appendTo($("body"));
     var nowTime = new Date();
