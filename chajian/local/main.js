@@ -1198,7 +1198,7 @@
                                         html += `<li>
                                             <a href="#" target="_blank" data-href="${urls}">
                                                 <div class="zqwM159-couponRec-img">
-                                                    <img src="${data.picUrl}_70x70">
+                                                    <img src="${data.picUrl}_80x80">
                                                 </div>
                                                 <div class="zqwM159-couponRec-itemT" title="${data.title}">${data.title}</div>
                                                 <div class="zqwM159-couponRec-price" title="${newPrice}元">券后:<span>${newPrice}</span>元</div>
@@ -1287,7 +1287,7 @@
                                 html += `<li>
                                     <a href="${v.detail_url}" class="zqwClear" target="_blank">
                                         <div class="fl">
-                                            <img src="${v.pic_url}_70x70">
+                                            <img src="${v.pic_url}_80x80">
                                         </div>
                                         <div class="fl">
                                             <div class="zqwM159-same-itemT">${v.title}</div>
