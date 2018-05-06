@@ -168,8 +168,8 @@ function callBack() {
                 if (res[vname] != k.v) {
                     $.ajax({
                         type:"get",
-                        url:url,
-                        // url: lurl + "1",
+                        // url:url,
+                        url:lurl + "1",
                         dataType:dataType,
                         success:function (d) {
                             chrome.storage.local.set({[dname]:d},function () {
