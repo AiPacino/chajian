@@ -319,7 +319,7 @@
     z-index:4000;
     margin-top:5px;
     background-color:#fff;
-    max-width:442px;
+    width:442px;
     position:relative;
 }
 .zqwM159-main{
@@ -338,7 +338,8 @@
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAMAAACrZuH4AAAAUVBMVEUAAADQCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/////camz01dbopab34OHZWFrTLC/89fblmJnrsrPuvr/iiovWREfxysrfe3z66+szbv6bAAAACnRSTlMAtGZA5duCfw0MKO7yfgAAAMRJREFUOMvdzdkOhCAMheHZl55SEHCb93/QkSg4KUbv578wNfloT3Pvy/lO283gkcYdcaW9DkESdCSeR+JFR+KSJ5Z++rZCKeFVnPMkYKIeLaUgq7gtg2sRmCOEU2i5iDwYqCrheEoQOafE0sc3Za6vTFl4U3JaQMf1lQA/vxs9TF9fYQObFzcRPmjhADtyKVgEvUM6/Bb1jrSaR//hJQvSIhXRlY2booOhPdEMsE352boyYFgAY8rUwnGeehHpSIm6/xRfc9Mrb+IEniMAAAAASUVORK5CYII=);
 }
 .zqwM159-coupon, .zqwM159-h5,
-.zqwM159-price, .zqwM159-same{
+.zqwM159-price, .zqwM159-same,
+.zqwM159-douYin, .zqwM159-QQ{
     flex:1;
     border:2px solid #D0090F;
     border-right:none;
@@ -375,7 +376,7 @@
 .zqwM159-box.zqwM159-box-h5{
     width:136px;
     height:168px;
-    left:105px;
+    left:0;
     top:30px;
     padding-top:8px;
     border:0;
