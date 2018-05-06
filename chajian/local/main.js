@@ -214,10 +214,6 @@
                         </div>
                         <div class="zqwT159-sameStyle fl"></div>
                         <div class="zqwT159-open fr"></div>
-                        <div class="zqwT159-guide fr">
-                            <i></i>
-                            <a href="${qqUrl}" target="_blank">领券咨询</a>
-                        </div>
                         <div class="zqwT159-active fr" style="display: none">
                             <ul>
                                 <li>

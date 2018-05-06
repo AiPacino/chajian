@@ -36,9 +36,6 @@ var popHtml = `<div class="header">
     <div class="main-font">打开淘宝商品宝贝页面 , 可看见找券窝</div>
     <div class="main-font margin-top">为你找的优惠券 , 一键领取即可</div>
     <div class="main-des"><span>注 : </span>优惠券会在下单环节直接抵扣</div>
-</div>
-<div class="footer">
-    <a href="${qqUrl}" target="_blank">领券咨询,戳这里>></a>
 </div>`;
 $("body").append(popHtml);
 $(".header-box").on("mouseenter",function () {
