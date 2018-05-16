@@ -337,7 +337,7 @@
     height:32px;
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAgCAMAAACrZuH4AAAAUVBMVEUAAADQCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/////camz01dbopab34OHZWFrTLC/89fblmJnrsrPuvr/iiovWREfxysrfe3z66+szbv6bAAAACnRSTlMAtGZA5duCfw0MKO7yfgAAAMRJREFUOMvdzdkOhCAMheHZl55SEHCb93/QkSg4KUbv578wNfloT3Pvy/lO283gkcYdcaW9DkESdCSeR+JFR+KSJ5Z++rZCKeFVnPMkYKIeLaUgq7gtg2sRmCOEU2i5iDwYqCrheEoQOafE0sc3Za6vTFl4U3JaQMf1lQA/vxs9TF9fYQObFzcRPmjhADtyKVgEvUM6/Bb1jrSaR//hJQvSIhXRlY2booOhPdEMsE352boyYFgAY8rUwnGeehHpSIm6/xRfc9Mrb+IEniMAAAAASUVORK5CYII=);
 }
-.zqwM159-coupon, .zqwM159-h5,
+.zqwM159-h5,
 .zqwM159-price, .zqwM159-same,
 .zqwM159-douYin, .zqwM159-QQ{
     flex:1;
@@ -428,6 +428,14 @@
     margin-bottom:5px;
 }
 /*中间优惠券*/
+.zqwM159-couponDan{
+    border:2px solid #D0090F;
+    border-top:0;
+    border-radius:0 0 10px 10px;
+    background:#fff;
+    padding:20px 0 23px 0;
+    font-size:14px;
+}
 .zqwM159-load{
     font-size:14px;
     position:absolute;
@@ -438,10 +446,6 @@
     height:100px;
     line-height:100px;
     z-index:-1;
-}
-.zqwM159-couponDan{
-    background:#fff;
-    padding:17px 0 0 0;
 }
 .zqwM159-couponDan-noIcon{
     width:62px;
@@ -454,10 +458,10 @@
     text-align:center;
 }
 .zqwM159-couponDan-img{
-    width:189px;
-    height:83px;
-    margin-left:8px;
-    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL0AAABTBAMAAAA4txvxAAAAKlBMVEUAAADQCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ/QCQ+YAAVXXB9nAAAADHRSTlMA8hatpCaTjoBFPgY1hZqJAAAA3klEQVRYw+3ZoQoCQRSF4YugKBYfwLBWkwabQcwb9FGsPp1jEMXjO4nuwqoDU8YbfphTL3zhcNux/lK5uVuTsX4SVmZ7Zefc+r3oEna2zvdvrT9SlIVN8/1L6w8UZWLKT6gaf6Yop3/42jR+7eVf3/xQXr62r++p/fxwrOYH+fnSQ108fMH9rp/ixyn/kw6/f7ovuE/vn+4L7tP7p/uC+/T+6b7gPr1/ui+4T++f7gvu0/un+4L79P6Ln0r5/3T4/dN9of3P/QK4v3ztR7z9K7Xfee+P3vup9/7rvV8/AYVyG6j6XJkNAAAAAElFTkSuQmCC);
+    width:227px;
+    height:65px;
+    margin-left:16px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAABBCAMAAAAUhOObAAAAXVBMVEXQCA7////QBQjRChDcR0rzwsPohIf88fHXKCzmd3nUGB730dLuo6XgV1rytLT76+zZNjviZWnogoP++Pj54OHrkpTTFRb1y8vkbW365ubhXl/99PT419jvqqrsmpwJDQ+7AAAC+0lEQVRo3u3b2XarIBiGYT/+n0FwHpKm0/1f5sadmEAba3omNs9aXTl+l4qANHt6enp6+rNELNsdIYi7D3fS0Cf30THtLlPQa9Uj1FevtKdKcehqfFd3h/1UvtS4r37ZR6QwRyw7mh1UilLjJ7pMPlLkWJMnHilGrBuTjjxfxV1fSfGKxyT8TJo3PEabZBuPCEhCSDECxyzNSPGCuFH+d7cRiU4GDvWXxjNAKo+N8gpc1IcUG8MxNb5XC/aMZS9Pe2ylGgirGoqiFCNSU3qNosSNMurMMDDISdvIiUv5/SGqe4MoM6AowJhVy419/z422fZQHzY28qzhIDvW02IjJp+HbGNElKCi6yZpbiSJG168kPOglW2L6BCopC6gRw0plxu7lUZ8ZtsSPY6DzR05WIXW6sXGaq0RG3smhcNNaTRMjtxC23ZqnOcAUaNbbRyzTRE1rrStgFxhaAeMLeB4FjWeVhvfs00RPR4gNW70amOfbYrA7602vmWbInr8lk7uXq0RKlsU6mwAqgJQDVBUCJySG3McAgNRlTMbYmYHFFSgLP2PQsAl9+6oostoWjsAeYOJlE0jbStNI6P3Y3JzgC5aOrauaZitZS4ACuCmS24ux+GOVMmt86FtqYy6LkBm4Xw1rTk59UGjlnYAScVgdVkwG+Z4I6Cnxcb+bZNrKxE+kDl7xdw4SFnSKOVIbbhGrtL76BruAxRK5XRthGRf57XEVdL7yCLYz9EFlNVzY06WLnwsLuoEvyqLYGStqDAKJA1rVlMxcgP4bgwaF116t6qPDPZXFVkN5NRYh4mz6st2R53kZ3MR7pOz0UNJhfZ/wKBso0dZmBJXLylexinyGCwhC2scgNZqR1ZpGCJ2mB3TTPSN0Xer4frj8JU2iTZm4vHvj6kmzmPrujzdRN/42HmApI/PCfHIuY6kE6fI9fM5iSdOkWvnrJJP9JHeD+fl9nGUVXiL5x73kXiuvH9+dTeFl8hv55B3d+RaXO35UPn+C//G/wU8Pf0B/wD3liK0ruuqvwAAAABJRU5ErkJggg==);
     cursor:pointer;
 }
 .zqwM159-couponDan-img a{
@@ -466,46 +470,39 @@
     display:block;
 }
 .zqwM159-couponDan-amount{
-    color:#FFFC1E;
-    font-weight:bold;
-    width:146px;
+    color:#fff;
+    width:152px;
     text-align:center;
     margin-top:15px;
 }
 .zqwM159-couponDan-amount span{
-    font-size:24px;
+    font-weight:bold;
+    font-size:28px;
     line-height:36px;
-}
-.zqwM159-couponDan-amountNeed{
-    color:#fff;
-    width:146px;
-    text-align:center;
-}
-.zqwM159-couponDan-button{
-    color:#fff;
-    width:20px;
-    font-size:13px;
-    padding:4px 6px 0 0;
 }
 .zqwM159-couponDan-price{
-    margin:-6px 0 0 36px;
+    margin:6px 0 0 12px;
     line-height:36px;
     height:36px;
+    color:#D2171D;
 }
 .zqwM159-couponDan-price span{
     font-size:24px;
-    color:#D2171D;
     font-weight:bold;
 }
 .zqwM159-couponDan-time{
-    margin:-3px 0 0 36px;
+    margin:-3px 0 0 12px;
+    color:#999;
 }
 #zqwM159-couponDan-time{
     display:inline-block;
 }
 .zqwM159-couponRec{
+    border:2px solid #D0090F;
+    border-top:0;
+    border-radius:0 0 10px 10px;
     background:#FFFFFF;
-    margin:13px 0 18px 0;
+    padding:10px 0 12px 0;
 }
 .zqwM159-couponRec-slider{
     margin:0 0 0 32px;
@@ -602,6 +599,85 @@
     background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAA9CAMAAAApvJHbAAAAilBMVEUAAADx8fHy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLMzMza2trPz8/k5OTq6urg4ODT09Pm5ubv7+/R0dHs7Ozd3d3X19fV1dV36P7oAAAAH3RSTlMA/gOVGPfyKOzo2LijiWZXSeZ8d8uYjW4l5c3Mgy8jEl0OcgAAAgdJREFUSMell+l6qjAQQBMQUFDqXu/tMiEJm8r7v14JtMbgoEDOz/k8H7PELKSHIHajcE6BzsPIjQMyHGe93IDJZrl2Brmz1QIwFqvZa9f1oA/Pfe47Ox+e4e+e5P+9h1fsT33ymw+v8d9w+ROG8YmVfIChHB6Ld2E4blfewRi2nYbBOIzWBd5I2wu07OxhLHvduXcYz/ttbfsTbH+GDGv02GbeJNtrP76Caayahi8m2gvV9jVMZV3by8n2srY3gEEpfYzlV54JHZ87JEDdPLkmeTcqM85YlurAF4lROWOMVR2dpkyR6UhMjohdXJgioViU68iRRIgtr0xRmbZMGjnRkYiESOKCtznKe/3cyOwqdSgkcyTvWm51Qe9kzngq8rMOwT/imZ8tinosjF+ESCvGyrS4k0tRmHP0SWdQSZL9SlTVyS/ylnYpoIvx7Tz7TfivhLKuM68/KHHZN+quWln3RWRMFStUFlrWdRs9Lxv7ctYRWbEWnsMjoTHvdiap7owqvpUFRezIWGtSTSWRyPLkZ0A4mutcpqkwf0dFY5eoHZMAcHTlXI2QAsJXz//bqLzMcHnuWO0tdvua3Z5qtZ/bnSVW55j1GWp/fhPnY7T837G6t1jfmTRbi/ua7V2ROO5wWXdsfPJby/s5zunj9ZxP9u8S+zeR/XvM/i2Iv0MPt3foofcd+gPkT12euCoLtwAAAABJRU5ErkJggg==) no-repeat center 40px;
     line-height:232px;
     text-align:center;
+}
+/*抖音同款*/
+.zqwM159-box-douYin{
+    height:312px;
+    overflow:auto;
+}
+.zqwM159-box-douYin::-webkit-scrollbar{
+    width:6px;
+}
+.zqwM159-box-douYin::-webkit-scrollbar-thumb{
+    background:#D0090F;
+    border-radius:12px;
+}
+.zqwM159-box-douYin::-webkit-scrollbar-thumb:hover{
+    opacity:0.7;
+}
+.zqwM159-box-douYin ul{
+    padding:20px 0 0 14px !important;
+}
+.zqwM159-box-douYin img{
+    width:86px;
+    height:86px;
+    margin-right:16px;
+    vertical-align:middle;
+}
+.zqwM159-douYin-itemV{
+    height:111px;
+    border-bottom:1px solid #ccc;
+    position:relative;
+}
+.zqwM159-douYin-itemT{
+    margin-top:-4px;
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    width:298px;
+    font-size:16px;
+    height:52px;
+    line-height:26px;
+    color:#000;
+}
+.zqwM159-douYin-itemS{
+    position:absolute;
+    left:0;
+    top:50px;
+    font-size:12px;
+    color:#666;
+}
+.zqwM159-douYin-itemP{
+    height:18px;
+    line-height:18px;
+    margin-top:20px;
+}
+.zqwM159-douYin-itemP span{
+    font-size:18px;
+    color:#D0090F;
+}
+.zqwM159-douYin-itemB{
+    width:106px;
+    height:30px;
+    position:absolute;
+    bottom:26px;
+    right:0;
+    line-height:30px;
+    color:#fff;
+    background:#D0090F;
+    text-align:center;
+    font-size:16px;
+}
+.zqwM159-box-douYin li{
+    position:relative;
+    margin-bottom:8px !important;
+}
+.zqwM159-box-douYin li a{
+    display:block;
+    width:100%;
+    height:100%;
+    cursor:pointer;
 }
 /*中间同款推荐*/
 .zqwM159-box-same{
